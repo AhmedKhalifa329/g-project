@@ -15,29 +15,29 @@
           <h2 class="text-center">Connect with us</h2>
           <hr />
           <div class="contact-info">
-            <h4 class="mb-3">Contact Information</h4>
+            <h4 class="mb-4">Contact Information</h4>
             <ul class="list-unstyled">
-              <li class="mb-2">
-                <i class="fas fa-phone fa-fw mr-2"></i>
+              <li class="mb-4">
+                <i class="fas fa-phone fa-fw mr-4"></i>
                 <span>Phone:</span>
                 <a href="tel:+20123456789" class="text-link">+20123456789</a>
               </li>
-              <li class="mb-2">
-                <i class="fas fa-envelope fa-fw mr-2"></i>
+              <li class="mb-4">
+                <i class="fas fa-envelope fa-fw mr-4"></i>
                 <span>Email:</span>
                 <a href="mailto:info@example.com" class="text-link">info@example.com</a>
               </li>
-              <li class="mb-2">
+              <li class="mb-4">
                 <i class="fas fa-globe fa-fw mr-2"></i>
                 <span>Website:</span>
                 <a href="https://www.example.com" target="_blank" class="text-link">www.example.com</a>
               </li>
-              <li class="mb-2">
+              <li class="mb-4">
                 <i class="fas fa-map-marker-alt fa-fw mr-2"></i>
                 <span>Address:</span>
                 <p class="mb-0">Main Street, Building 123, Nasr City, Cairo</p>
               </li>
-              <li class="mb-2">
+              <li class="mb-4">
                 <div class="social-media">
                   <div class="col-lg-8">
                     <div class="d-flex justify-content-end pt-3">
