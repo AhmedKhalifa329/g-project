@@ -8,7 +8,6 @@
           <div class="tab-content">
             <div class="col-lg-12">
               <div class="row g-4">
-              
                 <companiesView
                   v-for="(company) in displayedCompanys"
                   :key="company.id"
@@ -45,7 +44,7 @@ export default {
     return {
       companys: JsonProducts,
       displayedCompanys: JsonProducts.slice(0, 28),
-      name: " companies",
+      name: "  List of companies",
     };
   },
   computed: {
@@ -97,3 +96,4 @@ section {
   }
 }
 </style>
+

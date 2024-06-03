@@ -8,28 +8,14 @@
           <div class="tab-content">
             <div class="col-lg-12">
               <div class="input-group mt-4">
-                <input
-                  v-model="filter"
-                  type="text"
-                  class="form-control"
-                  placeholder="Filter products..."
-                />
+                <input v-model="filter" type="text" class="form-control" placeholder="Filter products..." />
               </div>
               <div class="row g-4">
-                <Product
-                  v-for="Product in filteredProducts"
-                  :key="Product.id"
-                  :name="Product.name"
-                  :paragraph="Product.paragraph"
-                  :price="Product.price"
-                  :image="Product.image"
-                />
+
+                <Product v-for="Product in filteredProducts" :key="Product.id" :name="Product.name"
+                  :paragraph="Product.paragraph" :price="Product.price" :image="Product.image" />
               </div>
-              <button
-                v-if="hasMoreProducts"
-                @click="showMoreProducts"
-                class="btn btn-primary mt-4"
-              >
+              <button v-if="hasMoreProducts" @click="showMoreProducts" class="btn btn-primary mt-4">
                 More
               </button>
             </div>
@@ -51,13 +37,13 @@ export default {
   data() {
     return {
       Products: JsonProducts,
-      displayedProducts: JsonProducts.slice(0, 9),
+      displayedProducts: JsonProducts.slice(0, 28),
       name: " Products",
       filter: "",
     };
   },
   computed: {
-    
+
     filteredProducts() {
       if (this.filter === '') {
         return this.displayedProducts;
@@ -92,9 +78,11 @@ section {
   }
 
   background-color: rgb(255 255 255);
+
   .container {
     background-color: rgb(255 255 255);
   }
+
   .btn {
     &.btn-primary {
       background-color: rgb(19 120 204);
@@ -103,10 +91,12 @@ section {
       padding: 0.5rem 1rem;
       border-radius: 0.25rem;
       transition: all 0.2s ease-in-out;
+
       &:hover {
         background-color: rgb(10 78 153);
         border-color: rgb(10 78 153);
       }
+
       &:focus {
         box-shadow: 0 0 0 0.2rem rgb(12 52 102 / 50%);
       }

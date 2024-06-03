@@ -5,6 +5,8 @@ import Prodects from "../views/Prodects.vue";
 import AboutUs from "@/views/AboutUs.vue";
 import ComPanies from "@/views/ComPanies.vue";
 import LoginViwe from "@/views/LoginViwe.vue";
+import ListOfCompanies from "@/views/ListOfCompanies.vue";
+import CompanyDetails from "@/views/CompanyDetails.vue";
 const routes = [
   {
     path: "/",
@@ -36,6 +38,16 @@ const routes = [
     path: "/loginViwe",
     name: "loginViwe",
     component: LoginViwe,
+  },
+  {
+    path: "/ListOfCompanies",
+    name: "ListOfCompanies",
+    component: ListOfCompanies,
+  },
+  {
+    path: "/CompanyDetails",
+    name: "CompanyDetails",
+    component: CompanyDetails,
   },
 ];
 
