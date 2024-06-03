@@ -87,6 +87,7 @@ section {
   background-size: cover;
   background-position: center;
   height: 100vh;
+
   /* adjust the height to your liking */
 }
 .container {

@@ -1,7 +1,9 @@
 <template>
-  <div class="home">
-    <HelloWorld />
-  </div>
+  <section>
+    <div class="home">
+      <HelloWorld />
+    </div>
+  </section>
 </template>
 
 <script>
@@ -15,3 +17,8 @@ export default {
   },
 };
 </script>
+<style>
+section {
+  margin-bottom: -48px;
+}
+</style>
