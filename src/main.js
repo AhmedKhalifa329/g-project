@@ -16,6 +16,6 @@ library.add(fab);
 library.add(faFacebook);
 
 createApp(App)
-  .use(router)
-  .component("font-awesome-icon", FontAwesomeIcon)
-  .mount("#app");
+    .use(router)
+    .component("font-awesome-icon", FontAwesomeIcon)
+    .mount("#app");

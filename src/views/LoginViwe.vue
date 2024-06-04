@@ -8,58 +8,36 @@
           <div class="card-header">
             <h3>Sign In</h3>
             <div class="d-flex justify-content-end social_icon">
-              <span
-                ><font-awesome-icon icon="fa-brands fa-facebook" class="icon"
-              /></span>
+              <span><font-awesome-icon icon="fa-brands fa-facebook" class="icon" /></span>
               <span><font-awesome-icon icon="fa-brands fa-google" /></span>
-              <span
-                ><font-awesome-icon icon="fa-brands fa-x-twitter" class="icon"
-              /></span>
+              <span><font-awesome-icon icon="fa-brands fa-x-twitter" class="icon" /></span>
             </div>
           </div>
           <div class="card-body">
             <form>
               <div class="input-group form-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"
-                    ><font-awesome-icon icon="fa-solid fa-user"
-                  /></span>
+                  <span class="input-group-text"><font-awesome-icon icon="fa-solid fa-user" /></span>
                 </div>
-                <input
-                  type="text"
-                  class="form-control"
-                  placeholder="username"
-                />
+                <input type="text" class="form-control" placeholder="username" />
               </div>
               <div class="input-group form-group">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"
-                    ><font-awesome-icon icon="fa-solid fa-key"
-                  /></span>
+                  <span class="input-group-text"><font-awesome-icon icon="fa-solid fa-key" /></span>
                 </div>
-                <input
-                  type="password"
-                  class="form-control"
-                  placeholder="password"
-                />
+                <input type="password" class="form-control" placeholder="password" />
               </div>
               <div class="row align-items-center remember">
                 <input type="checkbox" />Remember Me
               </div>
               <div class="form-group">
-                <input
-                  type="submit"
-                  value="Login"
-                  class="btn float-right login_btn"
-                />
+                <input type="submit" value="Login" class="btn float-right login_btn" />
               </div>
             </form>
           </div>
           <div class="card-footer">
             <div class="d-flex justify-content-center links">
-              Don't have an account?<a
-                ><router-link to="/SingUp">SingUp</router-link></a
-              >
+              Don't have an account?<a><router-link to="/SingUp">SingUp</router-link></a>
             </div>
             <div class="d-flex justify-content-center">
               <a href="#">Forgot your password?</a>
@@ -98,6 +76,7 @@ section {
   height: 120%;
   align-content: center;
 }
+
 .card-header {
   position: relative;
   margin: 20px;
@@ -115,9 +94,11 @@ h3 {
   width: 400px;
   background-color: rgba(0, 0, 0, 0.5) !important;
 }
+
 .input-group {
   margin-bottom: 20px;
 }
+
 .input-group-prepend span[data-v-7a1a9600] {
   width: 50px;
   background-color: #ffc312;
