@@ -1,5 +1,4 @@
 <!-- eslint-disable prettier/prettier -->
-
 <template>
     <section
         class="vh-100 bg-image"
