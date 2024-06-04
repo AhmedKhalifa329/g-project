@@ -1,4 +1,5 @@
 <!-- eslint-disable prettier/prettier -->
+
 <template>
     <section
         class="vh-100 bg-image"
@@ -18,7 +19,7 @@
                                     Create an account
                                 </h2>
 
-                                <form>
+                                <form @submit.prevent="createuser">
                                     <div
                                         data-mdb-input-init
                                         class="form-outline mb-4"
@@ -28,11 +29,18 @@
                                             id="form3Example1cg"
                                             class="form-control form-control-lg"
                                             placeholder="Your Name"
+                                            v-model="formData.userName"
                                         />
                                         <label
                                             class="form-label"
                                             for="form3Example1cg"
                                         ></label>
+                                        <div
+                                            v-if="errors.userName"
+                                            class="text-danger"
+                                        >
+                                            {{ errors.userName }}
+                                        </div>
                                     </div>
 
                                     <div
@@ -44,11 +52,18 @@
                                             id="form3Example3cg"
                                             class="form-control form-control-lg"
                                             placeholder="Your Email"
+                                            v-model="formData.email"
                                         />
                                         <label
                                             class="form-label"
                                             for="form3Example3cg"
                                         ></label>
+                                        <div
+                                            v-if="errors.email"
+                                            class="text-danger"
+                                        >
+                                            {{ errors.email }}
+                                        </div>
                                     </div>
 
                                     <div
@@ -60,11 +75,18 @@
                                             id="form3Example4cg"
                                             class="form-control form-control-lg"
                                             placeholder="Password"
+                                            v-model="formData.password"
                                         />
                                         <label
                                             class="form-label"
                                             for="form3Example4cg"
                                         ></label>
+                                        <div
+                                            v-if="errors.password"
+                                            class="text-danger"
+                                        >
+                                            {{ errors.password }}
+                                        </div>
                                     </div>
 
                                     <div
@@ -76,11 +98,18 @@
                                             id="form3Example4cdg"
                                             class="form-control form-control-lg"
                                             placeholder="Repeat your password"
+                                            v-model="formData.passwordrepeat"
                                         />
                                         <label
                                             class="form-label"
                                             for="form3Example4cdg"
                                         ></label>
+                                        <div
+                                            v-if="errors.passwordrepeat"
+                                            class="text-danger"
+                                        >
+                                            {{ errors.passwordrepeat }}
+                                        </div>
                                     </div>
 
                                     <div
@@ -91,21 +120,28 @@
                                             type="checkbox"
                                             value=""
                                             id="form2Example3cg"
+                                            v-model="formData.agreeTerms"
                                         />
                                         <label
                                             class="form-check-label"
-                                            for="form2Example3g"
+                                            for="form2Example3cg"
                                         >
-                                            I agree all statements in
+                                            I agree to all statements in
                                             <a href="#!" class="text-body"
                                                 ><u>Terms of service</u></a
                                             >
                                         </label>
+                                        <div
+                                            v-if="errors.agreeTerms"
+                                            class="text-danger"
+                                        >
+                                            {{ errors.agreeTerms }}
+                                        </div>
                                     </div>
 
                                     <div class="d-flex justify-content-center">
                                         <button
-                                            type="button"
+                                            type="submit"
                                             data-mdb-button-init
                                             data-mdb-ripple-init
                                             class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
@@ -134,6 +170,64 @@
     </section>
 </template>
 <!-- eslint-disable prettier/prettier -->
+
+<script>
+import axios from "axios";
+export default {
+    name: "SignUp",
+    data() {
+        return {
+            formData: {
+                userName: "",
+                email: "",
+                password: "",
+                passwordrepeat: "",
+                agreeTerms: false,
+            },
+            errors: {},
+        };
+    },
+    methods: {
+        validateForm() {
+            this.errors = {};
+            if (!this.formData.userName) {
+                this.errors.userName = "Name is required.";
+            }
+            if (!this.formData.email) {
+                this.errors.email = "Email is required.";
+            } else if (!this.validEmail(this.formData.email)) {
+                this.errors.email = "Valid email is required.";
+            }
+            if (!this.formData.password) {
+                this.errors.password = "Password is required.";
+            }
+            if (this.formData.password !== this.formData.passwordrepeat) {
+                this.errors.passwordrepeat = "Passwords do not match.";
+            }
+            if (!this.formData.agreeTerms) {
+                this.errors.agreeTerms = "You must agree to the terms.";
+            }
+            return Object.keys(this.errors).length === 0;
+        },
+        validEmail(email) {
+            const re =
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@(([^<>()[\]\\.,;:\s@"]+\.)+[^<>()[\]\\.,;:\s@"]{2,})$/i;
+
+            return re.test(email);
+        },
+        createuser() {
+            if (this.validateForm()) {
+                axios
+                    .post("/api/signup", this.formData)
+                    .then((response) => console.log(response))
+                    .catch((error) => console.log(error));
+            }
+        },
+    },
+};
+</script>
+<!-- eslint-disable prettier/prettier -->
+
 <style lang="scss" scoped>
 section {
     margin-bottom: -48px;
