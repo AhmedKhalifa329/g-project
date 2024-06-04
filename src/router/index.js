@@ -6,6 +6,7 @@ import AboutUs from "@/views/AboutUs.vue";
 import ComPanies from "@/views/ComPanies.vue";
 import LoginViwe from "@/views/LoginViwe.vue";
 import CompanyDetails from "@/views/CompanyDetails.vue";
+import ListOfCompanies from "@/views/ListOfCompanies.vue";
 const routes = [
     {
         path: "/",
@@ -37,6 +38,11 @@ const routes = [
         path: "/loginViwe",
         name: "loginViwe",
         component: LoginViwe,
+    },
+    {
+        path: "/ListOfCompanies",
+        name: "ListOfCompanies",
+        component: ListOfCompanies,
     },
     {
         path: "/CompanyDetails",
