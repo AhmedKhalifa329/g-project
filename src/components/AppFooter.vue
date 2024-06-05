@@ -93,7 +93,7 @@
                                 ><font-awesome-icon
                                     icon="fa-solid fa-copyright"
                                     class="copyright"
-                                />Your Site Name</a
+                                />Fruitables</a
                             >, All right reserved.</span
                         >
                     </div>
