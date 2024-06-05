@@ -6,7 +6,7 @@
                     <div class="border border-primary ap rounded position-relative Product-item"
                         style="border-color: #f6b127 !important;">
                         <div class="Product-img">
-                            <img :src="image" class="img-fluid w-100 rounded-top" alt="" />
+                            <img :src="flag" class="img-fluid w-100 rounded-top" alt="" />
                         </div>
                         <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
                             style="top: 10px; left: 10px; background-color: #f6b127 !important;">
@@ -34,7 +34,7 @@
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
     name: "Product",
-    props: ["name", "paragraph", "price", "image"],
+    props: ["name", "paragraph", "price", "flag"],
 };
 </script>
 <!-- eslint-disable prettier/prettier -->

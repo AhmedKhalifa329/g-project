@@ -8,15 +8,29 @@
                     <div class="tab-content">
                         <div class="col-lg-12">
                             <div class="input-group mt-4">
-                                <input v-model="filter" type="text" class="form-control"
-                                    placeholder="Filter products..." />
+                                <input
+                                    v-model="filter"
+                                    type="text"
+                                    class="form-control"
+                                    placeholder="Filter products..."
+                                />
                             </div>
                             <div class="row g-4">
                                 <h3 v-if="errorMsg">{{ errorMsg }}</h3>
-                                <Product v-for="product in filteredProducts" :key="product.id" :name="product.name"
-                                    :paragraph="product.paragraph" :price="product.price" :image="product.image" />
+                                <Product
+                                    v-for="product in filteredProducts"
+                                    :key="product.id"
+                                    :name="product.name.common"
+                                    :paragraph="product.paragraph"
+                                    :price="product.price"
+                                    :flag="product.flags.png"
+                                />
                             </div>
-                            <button v-if="hasMoreProducts" @click="showMoreProducts" class="btn btn-primary mt-4">
+                            <button
+                                v-if="hasMoreProducts"
+                                @click="showMoreProducts"
+                                class="btn btn-primary mt-4"
+                            >
                                 More
                             </button>
                         </div>
@@ -52,7 +66,9 @@ export default {
                 return this.displayedProducts;
             }
             return this.products.filter((product) => {
-                return product.name.toLowerCase().startsWith(this.filter.toLowerCase());
+                return product.name.common
+                    .toLowerCase()
+                    .startsWith(this.filter.toLowerCase());
             });
         },
         hasMoreProducts() {
@@ -61,11 +77,13 @@ export default {
     },
     methods: {
         getProducts() {
+            let url = "https://restcountries.com/v3.1/all";
             axios
-                .get(`http://localhost:8000/products/${this.page}`)
+                .get(url)
                 .then((response) => {
                     this.products = response.data;
-                    this.displayedProducts = this.products.slice(0, 9);
+                    console.log(response.data);
+                    this.displayedProducts = this.products.slice(0, 24);
                 })
                 .catch((error) => {
                     console.log(error);
@@ -73,14 +91,21 @@ export default {
                 });
         },
         showMoreProducts() {
-            const nextProducts = this.products.slice(this.displayedProducts.length, this.displayedProducts.length + 9);
+            const nextProducts = this.products.slice(
+                this.displayedProducts.length,
+                this.displayedProducts.length + 24
+            );
             if (nextProducts.length > 0) {
-                this.displayedProducts = this.displayedProducts.concat(nextProducts);
+                this.displayedProducts =
+                    this.displayedProducts.concat(nextProducts);
                 this.page++;
             }
         },
     },
     created() {
+        this.getProducts();
+    },
+    mounted() {
         this.getProducts();
     },
 };

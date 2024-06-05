@@ -12,7 +12,7 @@
             style="border-color: #81c408 !important"
           >
             <div class="company-img">
-              <img :src="image" class="img-fluid w-100 rounded-top" alt="" />
+              <img :src="flag" class="img-fluid w-100 rounded-top" alt="" />
             </div>
             <div
               class="text-white bg-primary px-3 py-1 rounded position-absolute"
@@ -48,7 +48,7 @@
 <script>
 export default {
   name: "companiesView",
-  props: ["name", "paragraph", "price", "image"],
+  props: ["name", "paragraph", "price", "flag"],
 };
 </script>
 <!-- eslint-disable prettier/prettier -->

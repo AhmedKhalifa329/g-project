@@ -9,17 +9,17 @@
                         <div class="col-lg-12">
                             <div class="row g-4">
                                 <companiesView
-                                    v-for="company in displayedCompanys"
+                                    v-for="company in filteredCompanies"
                                     :key="company.id"
-                                    :name="company.name"
+                                    :name="company.name.common"
                                     :paragraph="company.paragraph"
                                     :price="company.price"
-                                    :image="company.image"
+                                    :flag="company.flags.png"
                                 />
                             </div>
                             <button
-                                v-if="hasMoreCompanys"
-                                @click="showMoreCompanys"
+                                v-if="hasMoreCompanies"
+                                @click="showMoreCompanies"
                                 class="btn btn-primary mt-4"
                             >
                                 More
@@ -34,31 +34,71 @@
 <!-- eslint-disable prettier/prettier -->
 <script>
 import companiesView from "../components/companiesView.vue";
-import JsonProducts from "../Json/product.json";
-
+import axios from "axios";
 export default {
+    name: "ListOfCompanies",
     components: {
         companiesView,
     },
     data() {
         return {
-            companys: JsonProducts,
-            displayedCompanys: JsonProducts.slice(0, 28),
+            Companies: [],
+            displayedCompanies: [],
             name: "  List of companies",
+            filter: "",
+            page: 1,
         };
     },
     computed: {
-        hasMoreCompanys() {
-            return this.companys.length > this.displayedCompanys.length;
+        filteredCompanies() {
+            if (this.filter === "") {
+                return this.displayedCompanies;
+            }
+            return this.Companies.filter((company) => {
+                return company.name
+                    .toLowerCase()
+                    .startsWith(this.filter.toLowerCase);
+            });
+        },
+
+        hasMoreCompanies() {
+            return this.Companies.length > this.displayedCompanies.length;
         },
     },
     methods: {
-        showMoreCompanys() {
-            this.displayedCompanys.push(...this.companys.slice(9, 18));
+        getCompanies() {
+            let url = "https://restcountries.com/v3.1/all";
+            axios
+                .get(url)
+                .then((response) => {
+                    this.Companies = response.data;
+                    console.log(response.data);
+                    this.displayedCompanies = this.Companies.slice(0, 24);
+                })
+                .catch((error) => {
+                    console.log(error);
+                    this.errorMsg = "Error retrieving data";
+                });
+        },
+        showMoreCompanies() {
+            const nextCompanies = this.Companies.slice(
+                this.displayedCompanies.length,
+                this.displayedCompanies.length + 24
+            );
+            if (nextCompanies.length > 0) {
+                this.displayedCompanies =
+                    this.displayedCompanies.concat(nextCompanies);
+                this.page++;
+            }
         },
     },
     // eslint-disable-next-line vue/multi-word-component-names
-    name: "companies",
+    created() {
+        this.getCompanies();
+    },
+    mounted() {
+        this.getCompanies();
+    },
 };
 </script>
 <style scoped lang="scss">
