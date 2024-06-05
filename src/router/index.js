@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import HomeView from "../views/HomeView.vue";
-import SingUp from "../views/SingUp.vue";
+import SignUp from "../views/SignUp.vue";
 import Prodects from "../views/Prodects.vue";
 import AboutUs from "@/views/AboutUs.vue";
 import ComPanies from "@/views/ComPanies.vue";
@@ -14,9 +14,9 @@ const routes = [
         component: HomeView,
     },
     {
-        path: "/SingUp",
-        name: "SingUp",
-        component: SingUp,
+        path: "/SignUp",
+        name: "SignUp",
+        component: SignUp,
     },
 
     {
