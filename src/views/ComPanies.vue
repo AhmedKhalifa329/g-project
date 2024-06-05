@@ -51,7 +51,7 @@ export default {
     data() {
         return {
             Companies: [],
-            company:{},
+            company: {},
             displayedCompanies: [],
             name: "  The  companies ",
             filter: "",
@@ -102,10 +102,9 @@ export default {
         },
         showcompany(id) {
             let allcompanies = this.Companies;
-            let company = allcompanies.filter(company => company.id == id);
+            let company = allcompanies.filter((company) => company.id == id);
             this.company = company;
-
-        }
+        },
     },
     // eslint-disable-next-line vue/multi-word-component-names
     created() {
@@ -116,6 +115,7 @@ export default {
     },
 };
 </script>
+<!-- eslint-disable prettier/prettier -->
 <style scoped lang="scss">
 section {
     h1 {
