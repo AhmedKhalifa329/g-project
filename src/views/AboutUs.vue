@@ -2,6 +2,13 @@
     <section>
         <div class="container">
             <h1 class="text-center">About Us</h1>
+            <p class="text-center">
+                We are an institution there to facilitate import and export
+                operations. We collect the largest number of agricultural
+                products and companies that provide various agricultural
+                products. We facilitate the search method by providing contact
+                information for these companies.
+            </p>
             <div class="row">
                 <div class="col-md-5">
                     <!-- img -->
@@ -135,6 +142,11 @@ section {
 }
 h1 {
     padding-bottom: 60px;
+}
+p {
+    font-size: 18px;
+    padding-bottom: 20px;
+    font-weight: bolder;
 }
 .text-link {
     text-decoration: none;

@@ -21,7 +21,7 @@
                             <div class="d-flex justify-content-between flex-lg-wrap">
                                 <span class="text-dark fs-5 fw-bold mb-0">{{ price }}
                                     <span class="eye-p">
-                                        <font-awesome-icon icon="fa-solid fa-eye" /> </span></span>
+                                        <font-awesome-icon icon="fa-solid fa-dollar-sign" /> </span></span>
                             </div>
                         </div>
                     </div>

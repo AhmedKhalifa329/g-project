@@ -7,6 +7,23 @@
                 <div class="tab-class text-center">
                     <div class="tab-content">
                         <div class="col-lg-12">
+                            <div class="input-group mt-4">
+                                <div class="search-box">
+                                    <input
+                                        class="form-control me-2"
+                                        type="search"
+                                        placeholder="Search"
+                                        aria-label="Search"
+                                        v-model="filter"
+                                        v-show="showy"
+                                    />
+                                    <font-awesome-icon
+                                        icon="fa-search"
+                                        class="icon"
+                                        @click="showe"
+                                    />
+                                </div>
+                            </div>
                             <div class="row g-4">
                                 <companiesView
                                     v-for="company in filteredCompanies"
@@ -47,24 +64,26 @@ export default {
             name: "  List of companies",
             filter: "",
             page: 1,
+            showy: false,
         };
     },
+
     computed: {
         filteredCompanies() {
             if (this.filter === "") {
                 return this.displayedCompanies;
             }
             return this.Companies.filter((company) => {
-                return company.name
+                return company.name.common
                     .toLowerCase()
-                    .startsWith(this.filter.toLowerCase);
+                    .startsWith(this.filter.toLowerCase());
             });
         },
-
         hasMoreCompanies() {
             return this.Companies.length > this.displayedCompanies.length;
         },
     },
+
     methods: {
         getCompanies() {
             let url = "https://restcountries.com/v3.1/all";
@@ -91,6 +110,13 @@ export default {
                 this.page++;
             }
         },
+        showe() {
+            if (this.showy == false) {
+                this.showy = true;
+            } else {
+                this.showy = false;
+            }
+        },
     },
     // eslint-disable-next-line vue/multi-word-component-names
     created() {
@@ -115,6 +141,27 @@ section {
     background-color: rgb(255 255 255);
     .container {
         background-color: rgb(255 255 255);
+    }
+    .search-box {
+        padding-bottom: 20px;
+    }
+    .icon {
+        height: 30px;
+        width: 40px;
+        color: #81c408 !important;
+        padding-left: 20px;
+        cursor: pointer;
+        position: absolute;
+        right: 0;
+        top: -60px;
+    }
+    input {
+        padding: 10px;
+        position: absolute;
+        top: -60px;
+        height: 30px;
+        width: 200px;
+        right: 40px;
     }
     .btn {
         &.btn-primary {
