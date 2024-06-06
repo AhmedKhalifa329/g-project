@@ -25,6 +25,7 @@
                                 </div>
                             </div>
                             <div class="row g-4">
+                                <h3 v-if="errorMsg">{{ errorMsg }}</h3>
                                 <companiesView
                                     v-for="company in filteredCompanies"
                                     :key="company.id"
@@ -32,6 +33,7 @@
                                     :description="company.description"
                                     :slug="company.slug"
                                     :image="company.image"
+                                    @click="showCompany(company)"
                                 />
                             </div>
                             <button
@@ -65,7 +67,8 @@ export default {
             name: "  The  companies ",
             filter: "",
             page: 1,
-            showy:false,
+            showy: false,
+            errorMsg: "",
         };
     },
     computed: {
@@ -74,7 +77,7 @@ export default {
                 return this.displayedCompanies;
             }
             return this.Companies.filter((company) => {
-                return company.name.common
+                return company.name
                     .toLowerCase()
                     .startsWith(this.filter.toLowerCase());
             });
@@ -86,7 +89,7 @@ export default {
     },
     methods: {
         getCompanies() {
-            let url = "https://restcountries.com/v3.1/all";
+            let url = "https://api.example.com/company";
             axios
                 .get(url)
                 .then((response) => {
@@ -115,7 +118,7 @@ export default {
             let company = allcompanies.filter((company) => company.id == id);
             this.company = company;
         },
-         showe() {
+        showe() {
             if (this.showy == false) {
                 this.showy = true;
             } else {

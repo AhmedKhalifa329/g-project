@@ -74,7 +74,7 @@ export default {
                 return this.displayedCompanies;
             }
             return this.Companies.filter((company) => {
-                return company.name.common
+                return company.name
                     .toLowerCase()
                     .startsWith(this.filter.toLowerCase());
             });
@@ -86,7 +86,7 @@ export default {
 
     methods: {
         getCompanies() {
-            let url = "https://restcountries.com/v3.1/all";
+            let url = "https://api.example.com/company";
             axios
                 .get(url)
                 .then((response) => {

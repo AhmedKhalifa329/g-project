@@ -76,7 +76,7 @@ export default {
                 return this.displayedProducts;
             }
             return this.products.filter((product) => {
-                return product.name.common
+                return product.name
                     .toLowerCase()
                     .startsWith(this.filter.toLowerCase());
             });

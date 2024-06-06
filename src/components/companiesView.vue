@@ -1,7 +1,9 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
     <div class="col-md-6 col-lg-4 col-xl-3 main">
-         <router-link :to="{ name: 'CompanyDetails', params: { id: company.id } }"><a class="main link">
+        <router-link
+            :to="{ name: 'CompanyDetails', params: { id: company.id } }"
+            ><a class="main link">
                 <div
                     class="owl-item active"
                     style="width: 260.25px; margin-right: 25px"
@@ -55,7 +57,7 @@
 <script>
 export default {
     name: "companiesView",
-    props: ["name", "description", "slug", "image","company"],
+    props: ["name", "description", "slug", "image", "company"],
 };
 </script>
 <!-- eslint-disable prettier/prettier -->
