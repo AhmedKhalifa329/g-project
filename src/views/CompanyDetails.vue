@@ -4,6 +4,7 @@
         <div class="container">
             <h1 v-if="errorMsg">{{ errorMsg }}</h1>
             <h1 class="text-center">{{ company.name }}</h1>
+            <p class="text-center">{{ company.description }}</p>
             <div class="row">
                 <div class="col-md-5">
                     <!-- img-->
@@ -119,14 +120,15 @@ export default {
     name: "CompanyDetails",
     data() {
         return {
-            company: [],
+            company: {},
             errorMsg: "",
         };
     },
     methods: {
         getcompany() {
+            const id = this.$route.params.id;
             axios
-                .get(`http://localhost:8000/products/${this.page}`)
+                .get(`http://localhost:8000/products/${id}`)
                 .then((response) => {
                     this.company = response.data;
                 })

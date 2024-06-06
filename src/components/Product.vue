@@ -1,32 +1,55 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
     <div class="col-md-6 col-lg-4 col-xl-3 main">
-        <router-link to="/ListOfCompanies"><a class="main link">
-                <div class="owl-item active main" style="width: 260.25px; margin-right: 25px;">
-                    <div class="border border-primary ap rounded position-relative Product-item"
-                        style="border-color: #f6b127 !important;">
+        <router-link
+            :to="{ name: 'ProductDetails', params: { id: product.id } }"
+            ><a class="main link">
+                <div
+                    class="owl-item active main"
+                    style="width: 260.25px; margin-right: 25px"
+                >
+                    <div
+                        class="border border-primary ap rounded position-relative Product-item"
+                        style="border-color: #f6b127 !important"
+                    >
                         <div class="Product-img">
-                            <img :src="flag" class="img-fluid w-100 rounded-top" alt="" />
+                            <img
+                                :src="image"
+                                class="img-fluid w-100 rounded-top"
+                                alt=""
+                            />
                         </div>
-                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
-                            style="top: 10px; left: 10px; background-color: #f6b127 !important;">
+                        <div
+                            class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                            style="
+                                top: 10px;
+                                left: 10px;
+                                background-color: #f6b127 !important;
+                            "
+                        >
                             Product
                         </div>
                         <div class="p-4 rounded-bottom">
-                            <h4>{{ name }}</h4>
+                            <h4>{{ title }}</h4>
 
                             <p>
-                                {{ paragraph }}
+                                {{ description }}
                             </p>
-                            <div class="d-flex justify-content-between flex-lg-wrap">
-                                <span class="text-dark fs-5 fw-bold mb-0">{{ price }}
+                            <div
+                                class="d-flex justify-content-between flex-lg-wrap"
+                            >
+                                <span class="text-dark fs-5 fw-bold mb-0"
+                                    >{{ slug }}
                                     <span class="eye-p">
-                                        <font-awesome-icon icon="fa-solid fa-dollar-sign" /> </span></span>
+                                        <font-awesome-icon
+                                            icon="fa-solid fa-dollar-sign"
+                                        /> </span
+                                ></span>
                             </div>
                         </div>
                     </div>
-                </div>
-            </a></router-link>
+                </div> </a
+        ></router-link>
     </div>
 </template>
 <!-- eslint-disable prettier/prettier -->
@@ -34,7 +57,7 @@
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
     name: "Product",
-    props: ["name", "paragraph", "price", "flag"],
+    props: ["title", "description", "slug", "image","product"],
 };
 </script>
 <!-- eslint-disable prettier/prettier -->
@@ -124,7 +147,6 @@ export default {
 
 h4 {
     height: 54px;
-
 }
 
 p {

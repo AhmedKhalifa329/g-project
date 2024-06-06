@@ -7,6 +7,7 @@ import ComPanies from "@/views/ComPanies.vue";
 import LoginViwe from "@/views/LoginViwe.vue";
 import CompanyDetails from "@/views/CompanyDetails.vue";
 import ListOfCompanies from "@/views/ListOfCompanies.vue";
+
 const routes = [
     {
         path: "/",
@@ -30,8 +31,8 @@ const routes = [
         component: AboutUs,
     },
     {
-        path: "/companies",
-        name: "companies",
+        path: "/ComPanies",
+        name: "ComPanies",
         component: ComPanies,
     },
     {
@@ -40,12 +41,12 @@ const routes = [
         component: LoginViwe,
     },
     {
-        path: "/ListOfCompanies",
+        path: "/product/:id",
         name: "ListOfCompanies",
         component: ListOfCompanies,
     },
     {
-        path: "/CompanyDetails",
+        path: "/company/:id",
         name: "CompanyDetails",
         component: CompanyDetails,
     },

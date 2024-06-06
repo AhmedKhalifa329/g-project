@@ -14,7 +14,7 @@
                                         type="search"
                                         placeholder="Search"
                                         aria-label="Search"
-                                         v-model="filter"
+                                        v-model="filter"
                                         v-show="showy"
                                     />
                                     <font-awesome-icon
@@ -29,10 +29,10 @@
                                 <Product
                                     v-for="product in filteredProducts"
                                     :key="product.id"
-                                    :name="product.name.common"
-                                    :paragraph="product.paragraph"
-                                    :price="product.price"
-                                    :flag="product.flags.png"
+                                    :title="product.title"
+                                    :description="product.description"
+                                    :slug="product.slug"
+                                    :image="product.image"
                                 />
                             </div>
                             <button
@@ -87,7 +87,7 @@ export default {
     },
     methods: {
         getProducts() {
-            let url = "https://restcountries.com/v3.1/all";
+            let url = "https://api.example.com/products" ;
             axios
                 .get(url)
                 .then((response) => {

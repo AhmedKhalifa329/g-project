@@ -28,10 +28,10 @@
                                 <companiesView
                                     v-for="company in filteredCompanies"
                                     :key="company.id"
-                                    :name="company.name.common"
-                                    :paragraph="company.paragraph"
-                                    :price="company.price"
-                                    :flag="company.flags.png"
+                                    :name="company.name"
+                                    :description="company.description"
+                                    :slug="company.slug"
+                                    :image="company.image"
                                 />
                             </div>
                             <button

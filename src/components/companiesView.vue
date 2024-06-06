@@ -1,8 +1,7 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
     <div class="col-md-6 col-lg-4 col-xl-3 main">
-        <router-link to="/CompanyDetails"
-            ><a class="main link">
+         <router-link :to="{ name: 'CompanyDetails', params: { id: company.id } }"><a class="main link">
                 <div
                     class="owl-item active"
                     style="width: 260.25px; margin-right: 25px"
@@ -13,7 +12,7 @@
                     >
                         <div class="company-img">
                             <img
-                                :src="flag"
+                                :src="image"
                                 class="img-fluid w-100 rounded-top"
                                 alt=""
                             />
@@ -32,13 +31,13 @@
                             <h4>{{ name }}</h4>
 
                             <p>
-                                {{ paragraph }}
+                                {{ description }}
                             </p>
                             <div
                                 class="d-flex justify-content-between flex-lg-wrap"
                             >
                                 <span class="text-dark fs-5 fw-bold mb-0"
-                                    >{{ price }}
+                                    >{{ slug }}
                                     <span class="eye">
                                         <font-awesome-icon
                                             icon="fa-solid fa-eye"
@@ -56,7 +55,7 @@
 <script>
 export default {
     name: "companiesView",
-    props: ["name", "paragraph", "price", "flag"],
+    props: ["name", "description", "slug", "image","company"],
 };
 </script>
 <!-- eslint-disable prettier/prettier -->
