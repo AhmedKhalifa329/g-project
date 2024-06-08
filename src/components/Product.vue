@@ -2,7 +2,7 @@
 <template>
     <div class="col-md-6 col-lg-4 col-xl-3 main">
         <router-link
-            :to="{ name: 'ProductDetails', params: { id: product.id } }"
+            :to="{ name: 'ListOfCompanies', params: { id: data.id } }"
             ><a class="main link">
                 <div
                     class="owl-item active main"
@@ -14,7 +14,7 @@
                     >
                         <div class="Product-img">
                             <img
-                                :src="image"
+                                :src="data.company_logo"
                                 class="img-fluid w-100 rounded-top"
                                 alt=""
                             />
@@ -30,16 +30,16 @@
                             Product
                         </div>
                         <div class="p-4 rounded-bottom">
-                            <h4>{{ title }}</h4>
+                            <h4>{{ data.title }}</h4>
 
                             <p>
-                                {{ description }}
+                                {{ data.description }}
                             </p>
                             <div
                                 class="d-flex justify-content-between flex-lg-wrap"
                             >
                                 <span class="text-dark fs-5 fw-bold mb-0"
-                                    >{{ slug }}
+                                    >{{ data.slug }}
                                     <span class="eye-p">
                                         <font-awesome-icon
                                             icon="fa-solid fa-dollar-sign"
@@ -57,7 +57,7 @@
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
     name: "Product",
-    props: ["title", "description", "slug", "image", "product"],
+    props: ["data"],
 };
 </script>
 <!-- eslint-disable prettier/prettier -->

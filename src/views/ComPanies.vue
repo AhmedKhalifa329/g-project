@@ -27,13 +27,9 @@
                             <div class="row g-4">
                                 <h3 v-if="errorMsg">{{ errorMsg }}</h3>
                                 <companiesView
-                                    v-for="company in filteredCompanies"
-                                    :key="company.id"
-                                    :name="company.name"
-                                    :description="company.description"
-                                    :slug="company.slug"
-                                    :image="company.image"
-                                    @click="showCompany(company)"
+                                    v-for="(company,i) in filteredCompanies"
+                                    :key="i"
+                                    :data="company"
                                 />
                             </div>
                             <button
@@ -76,6 +72,11 @@ export default {
             if (this.filter === "") {
                 return this.displayedCompanies;
             }
+            return this.Companies.filter(obj =>
+                Object.values(obj).some(value =>
+                    String(value).toLowerCase().includes(this.filter.toLowerCase())
+                )
+            );
             return this.Companies.filter((company) => {
                 return company.name
                     .toLowerCase()
@@ -89,7 +90,7 @@ export default {
     },
     methods: {
         getCompanies() {
-            let url = "https://api.example.com/company";
+            let url = "http://127.0.0.1:8000/companies/";
             axios
                 .get(url)
                 .then((response) => {
@@ -130,9 +131,9 @@ export default {
     created() {
         this.getCompanies();
     },
-    mounted() {
-        this.getCompanies();
-    },
+    // mounted() {
+        // this.getCompanies();
+    // },
 };
 </script>
 <!-- eslint-disable prettier/prettier -->

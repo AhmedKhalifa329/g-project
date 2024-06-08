@@ -2,7 +2,7 @@
 <template>
     <div class="col-md-6 col-lg-4 col-xl-3 main">
         <router-link
-            :to="{ name: 'CompanyDetails', params: { id: company.id } }"
+            :to="{ name: 'CompanyDetails', params: { id: data.id } }"
             ><a class="main link">
                 <div
                     class="owl-item active"
@@ -14,7 +14,7 @@
                     >
                         <div class="company-img">
                             <img
-                                :src="image"
+                                :src="data.image"
                                 class="img-fluid w-100 rounded-top"
                                 alt=""
                             />
@@ -30,16 +30,16 @@
                             company
                         </div>
                         <div class="p-4 rounded-bottom">
-                            <h4>{{ name }}</h4>
+                            <h4>{{ data.name }}</h4>
 
                             <p>
-                                {{ description }}
+                                {{ data.description }}
                             </p>
                             <div
                                 class="d-flex justify-content-between flex-lg-wrap"
                             >
                                 <span class="text-dark fs-5 fw-bold mb-0"
-                                    >{{ slug }}
+                                    >{{ data.slug }}
                                     <span class="eye">
                                         <font-awesome-icon
                                             icon="fa-solid fa-eye"
@@ -57,7 +57,7 @@
 <script>
 export default {
     name: "companiesView",
-    props: ["name", "description", "slug", "image", "company"],
+    props: ["data"],
 };
 </script>
 <!-- eslint-disable prettier/prettier -->
@@ -160,3 +160,4 @@ p {
     color: #81c408;
 }
 </style>
+

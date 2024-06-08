@@ -128,7 +128,7 @@ export default {
         getcompany() {
             const id = this.$route.params.id;
             axios
-                .get(`http://localhost:8000/company/${id}`)
+                .get(`http://localhost:8000/companies/${id}/`)
                 .then((response) => {
                     this.company = response.data;
                 })

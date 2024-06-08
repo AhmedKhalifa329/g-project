@@ -27,12 +27,9 @@
                             <div class="row g-4">
                                 <h3 v-if="errorMsg">{{ errorMsg }}</h3>
                                 <Product
-                                    v-for="product in filteredProducts"
-                                    :key="product.id"
-                                    :title="product.title"
-                                    :description="product.description"
-                                    :slug="product.slug"
-                                    :image="product.image"
+                                    v-for="(product,i) in filteredProducts"
+                                    :key="i"
+                                    :data = "product"
                                 />
                             </div>
                             <button
@@ -75,6 +72,11 @@ export default {
             if (this.filter === "") {
                 return this.displayedProducts;
             }
+            return this.products.filter(obj =>
+                Object.values(obj).some(value =>
+                    String(value).toLowerCase().includes(this.filter.toLowerCase())
+                )
+            );
             return this.products.filter((product) => {
                 return product.name
                     .toLowerCase()
@@ -87,7 +89,7 @@ export default {
     },
     methods: {
         getProducts() {
-            let url = "https://api.example.com/products";
+            let url = "http://127.0.0.1:8000/products/";
             axios
                 .get(url)
                 .then((response) => {

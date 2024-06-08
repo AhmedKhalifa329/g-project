@@ -39,6 +39,7 @@ const routes = [
         name: "CompanyDetails",
         component: CompanyDetails,
     },
+    
 ];
 
 const router = createRouter({
@@ -47,3 +48,4 @@ const router = createRouter({
 });
 
 export default router;
+

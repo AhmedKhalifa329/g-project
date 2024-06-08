@@ -26,12 +26,9 @@
                             </div>
                             <div class="row g-4">
                                 <companiesView
-                                    v-for="company in filteredCompanies"
-                                    :key="company.id"
-                                    :name="company.name"
-                                    :description="company.description"
-                                    :slug="company.slug"
-                                    :image="company.image"
+                                    v-for="(company,i) in filteredCompanies"
+                                    :key="i"
+                                    :data="company"
                                 />
                             </div>
                             <button
@@ -86,7 +83,7 @@ export default {
 
     methods: {
         getCompanies() {
-            let url = "https://api.example.com/company";
+            let url = "http://127.0.0.1:8000/companies/";
             axios
                 .get(url)
                 .then((response) => {
@@ -127,6 +124,7 @@ export default {
     },
 };
 </script>
+<!-- eslint-disable prettier/prettier -->
 <style scoped lang="scss">
 section {
     h1 {
@@ -185,3 +183,4 @@ section {
     }
 }
 </style>
+
