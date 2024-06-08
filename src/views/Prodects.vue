@@ -77,11 +77,6 @@ export default {
                     String(value).toLowerCase().includes(this.filter.toLowerCase())
                 )
             );
-            return this.products.filter((product) => {
-                return product.name
-                    .toLowerCase()
-                    .startsWith(this.filter.toLowerCase());
-            });
         },
         hasMoreProducts() {
             return this.products.length > this.displayedProducts.length;

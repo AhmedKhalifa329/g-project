@@ -27,7 +27,7 @@
                             <div class="row g-4">
                                 <h3 v-if="errorMsg">{{ errorMsg }}</h3>
                                 <companiesView
-                                    v-for="(company,i) in filteredCompanies"
+                                    v-for="(company, i) in filteredCompanies"
                                     :key="i"
                                     :data="company"
                                 />
@@ -72,16 +72,13 @@ export default {
             if (this.filter === "") {
                 return this.displayedCompanies;
             }
-            return this.Companies.filter(obj =>
-                Object.values(obj).some(value =>
-                    String(value).toLowerCase().includes(this.filter.toLowerCase())
+            return this.Companies.filter((obj) =>
+                Object.values(obj).some((value) =>
+                    String(value)
+                        .toLowerCase()
+                        .includes(this.filter.toLowerCase())
                 )
             );
-            return this.Companies.filter((company) => {
-                return company.name
-                    .toLowerCase()
-                    .startsWith(this.filter.toLowerCase());
-            });
         },
 
         hasMoreCompanies() {
@@ -132,7 +129,7 @@ export default {
         this.getCompanies();
     },
     // mounted() {
-        // this.getCompanies();
+    // this.getCompanies();
     // },
 };
 </script>
@@ -166,8 +163,8 @@ section {
         top: -60px;
     }
     .icon:hover {
-    color: var(--bs-nav-link-color) !important;
-}
+        color: var(--bs-nav-link-color) !important;
+    }
     input {
         padding: 10px;
         position: absolute;

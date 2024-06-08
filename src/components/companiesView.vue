@@ -39,7 +39,7 @@
                                 class="d-flex justify-content-between flex-lg-wrap"
                             >
                                 <span class="text-dark fs-5 fw-bold mb-0"
-                                    >{{ data.slug }}
+                                    >{{ data.link_views }}
                                     <span class="eye">
                                         <font-awesome-icon
                                             icon="fa-solid fa-eye"
