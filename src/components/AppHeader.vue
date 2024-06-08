@@ -57,39 +57,11 @@
                                     ></a
                                 >
                             </li>
-
-                            <li>
-                                <a
-                                    class="nav-link nav-link p-lg-3 dropdown-item"
-                                    aria-current="page"
-                                    ><router-link to="/loginViwe"
-                                        >login Us</router-link
-                                    ></a
-                                >
-                            </li>
                         </ul>
                     </li>
                 </ul>
 
-                <form class="d-flex" role="search">
-                    <input
-                        class="form-control me-2"
-                        type="search"
-                        placeholder="Search"
-                        aria-label="Search"
-                        v-show="showy"
-                    />
-                    <font-awesome-icon
-                        icon="fa-search"
-                        class="icon"
-                        @click="showe"
-                    />
-                    <font-awesome-icon
-                        icon="fa-user"
-                        class="icon"
-                        @click="goToSingpage"
-                    />
-                </form>
+                <form class="d-flex" role="search"></form>
             </div>
         </div>
     </nav>
@@ -97,12 +69,6 @@
 <!-- eslint-disable prettier/prettier -->
 
 <script>
-import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
-import { library } from "@fortawesome/fontawesome-svg-core";
-import { faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
-
-library.add(faSearch, faUser);
-
 export default {
     name: "AppHeader",
     data() {
@@ -122,9 +88,7 @@ export default {
             this.$router.push("/loginViwe");
         },
     },
-    components: {
-        FontAwesomeIcon,
-    },
+    components: {},
 };
 </script>
 <!-- eslint-disable prettier/prettier -->

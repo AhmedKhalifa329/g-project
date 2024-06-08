@@ -57,7 +57,7 @@
 export default {
     // eslint-disable-next-line vue/multi-word-component-names
     name: "Product",
-    props: ["title", "description", "slug", "image","product"],
+    props: ["title", "description", "slug", "image", "product"],
 };
 </script>
 <!-- eslint-disable prettier/prettier -->

@@ -87,7 +87,7 @@ export default {
     },
     methods: {
         getProducts() {
-            let url = "https://api.example.com/products" ;
+            let url = "https://api.example.com/products";
             axios
                 .get(url)
                 .then((response) => {
