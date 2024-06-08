@@ -157,6 +157,9 @@ section {
         right: 0;
         top: -60px;
     }
+    .icon:hover {
+    color: var(--bs-nav-link-color) !important;
+}
     input {
         padding: 10px;
         position: absolute;
