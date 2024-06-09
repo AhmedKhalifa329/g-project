@@ -1,8 +1,7 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
     <div class="col-md-6 col-lg-4 col-xl-3 main">
-        <router-link
-            :to="{ name: 'CompanyDetails', params: { id: data.id } }"
+        <router-link :to="{ name: 'CompanyDetails', params: { id: data.id } }"
             ><a class="main link">
                 <div
                     class="owl-item active"
@@ -32,7 +31,7 @@
                         <div class="p-4 rounded-bottom">
                             <h4>{{ data.name }}</h4>
 
-                            <p>
+                            <p class="description">
                                 {{ data.description }}
                             </p>
                             <div
@@ -154,10 +153,15 @@ p {
     unicode-bidi: isolate;
     overflow: hidden;
     height: 50px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.description:hover {
+    white-space: normal;
+    overflow: visible;
 }
 
 .eye {
     color: #81c408;
 }
 </style>
-

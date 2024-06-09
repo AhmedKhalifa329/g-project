@@ -20,21 +20,29 @@
                 <ul class="navbar-nav m-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link p-lg-3 active" aria-current="page"
-                            ><router-link to="/"      active-class="active-link"
-                            exact>Home</router-link></a
+                            ><router-link
+                                to="/"
+                                active-class="active-link"
+                                exact
+                                >Home</router-link
+                            ></a
                         >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link p-lg-3" aria-current="page"
-                            ><router-link to="/Prodects"
-                                  active-class="active-link" >Prodects</router-link
+                            ><router-link
+                                to="/Prodects"
+                                active-class="active-link"
+                                >Prodects</router-link
                             ></a
                         >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link p-lg-3" aria-current="page"
-                            ><router-link to="/companies"
-                                  active-class="active-link">Companies</router-link
+                            ><router-link
+                                to="/companies"
+                                active-class="active-link"
+                                >Companies</router-link
                             ></a
                         >
                     </li>
@@ -53,8 +61,10 @@
                                 <a
                                     class="nav-link nav-link p-lg-3 dropdown-item"
                                     aria-current="page"
-                                    ><router-link to="/about"
-                                         active-class="active-link" >About Us</router-link
+                                    ><router-link
+                                        to="/about"
+                                        active-class="active-link"
+                                        >About Us</router-link
                                     ></a
                                 >
                             </li>
@@ -109,12 +119,13 @@ a {
 a:hover {
     color: #81c408 !important;
 }
-a:active{
+a:active {
     color: #81c408 !important;
 }
 .active-link {
     color: #81c408 !important;
-    font-weight: bold;}
+    font-weight: bold;
+}
 i {
     height: 10px;
     width: 10px;
