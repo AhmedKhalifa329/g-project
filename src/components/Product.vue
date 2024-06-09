@@ -1,8 +1,7 @@
 <!-- eslint-disable prettier/prettier -->
 <template>
     <div class="col-md-6 col-lg-4 col-xl-3 main">
-        <router-link
-            :to="{ name: 'ListOfCompanies', params: { id: data.id } }"
+        <router-link :to="{ name: 'ListOfCompanies', params: { id: data.id } }"
             ><a class="main link">
                 <div
                     class="owl-item active main"
@@ -32,7 +31,7 @@
                         <div class="p-4 rounded-bottom">
                             <h4>{{ data.title }}</h4>
 
-                            <p>
+                            <p class="description">
                                 {{ data.description }}
                             </p>
                             <div
@@ -94,10 +93,14 @@ export default {
     overflow: hidden;
     transition: 0.5s;
     border-radius: 10px 10px 0 0;
+    height: 200px;
 }
 
 .Product-item .Product-img img {
     transition: 0.5s;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 
 .owl-stage {
@@ -149,7 +152,7 @@ h4 {
     height: 54px;
 }
 
-p {
+.description {
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
@@ -158,6 +161,12 @@ p {
     unicode-bidi: isolate;
     overflow: hidden;
     height: 50px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.description:hover {
+    white-space: normal;
+    overflow: visible;
 }
 
 .eye-p {

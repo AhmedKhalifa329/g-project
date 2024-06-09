@@ -164,7 +164,7 @@ a {
 .hrf {
     border-radius: 3px;
 }
-a[data-v-469af010] {
+a {
     color: #ffffff;
     text-decoration: none;
     border-radius: 1.5mm;
