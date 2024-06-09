@@ -89,10 +89,14 @@ export default {
     overflow: hidden;
     transition: 0.5s;
     border-radius: 10px 10px 0 0;
+    height: 200px;
 }
 
 .company-item .company-img img {
     transition: 0.5s;
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
 }
 
 .owl-stage {
