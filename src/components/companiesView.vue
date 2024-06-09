@@ -160,10 +160,10 @@ h4 {
     text-overflow: ellipsis;
     white-space: nowrap;
 }
-.description:hover {
-    white-space: normal;
-    overflow: visible;
-}
+// .description:hover {
+//     white-space: normal;
+//     overflow: visible;
+// }
 
 .eye {
     color: #81c408;
