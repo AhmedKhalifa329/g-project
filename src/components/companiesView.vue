@@ -144,7 +144,7 @@ h4 {
     height: 54px;
 }
 
-p {
+.description {
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
