@@ -20,20 +20,21 @@
                 <ul class="navbar-nav m-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link p-lg-3 active" aria-current="page"
-                            ><router-link to="/">Home</router-link></a
+                            ><router-link to="/"      active-class="active-link"
+                            exact>Home</router-link></a
                         >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link p-lg-3" aria-current="page"
                             ><router-link to="/Prodects"
-                                >Prodects</router-link
+                                  active-class="active-link" >Prodects</router-link
                             ></a
                         >
                     </li>
                     <li class="nav-item">
                         <a class="nav-link p-lg-3" aria-current="page"
                             ><router-link to="/companies"
-                                >Companies</router-link
+                                  active-class="active-link">Companies</router-link
                             ></a
                         >
                     </li>
@@ -53,7 +54,7 @@
                                     class="nav-link nav-link p-lg-3 dropdown-item"
                                     aria-current="page"
                                     ><router-link to="/about"
-                                        >About Us</router-link
+                                         active-class="active-link" >About Us</router-link
                                     ></a
                                 >
                             </li>
@@ -71,24 +72,24 @@
 <script>
 export default {
     name: "AppHeader",
-    data() {
-        return {
-            showy: false,
-        };
-    },
-    methods: {
-        showe() {
-            if (this.showy == false) {
-                this.showy = true;
-            } else {
-                this.showy = false;
-            }
-        },
-        goToSingpage() {
-            this.$router.push("/loginViwe");
-        },
-    },
-    components: {},
+    // data() {
+    //     return {
+    //         showy: false,
+    //     };
+    // },
+    // methods: {
+    //     showe() {
+    //         if (this.showy == false) {
+    //             this.showy = true;
+    //         } else {
+    //             this.showy = false;
+    //         }
+    //     },
+    //     goToSingpage() {
+    //         this.$router.push("/loginViwe");
+    //     },
+    // },
+    // components: {},
 };
 </script>
 <!-- eslint-disable prettier/prettier -->
@@ -108,6 +109,12 @@ a {
 a:hover {
     color: #81c408 !important;
 }
+a:active{
+    color: #81c408 !important;
+}
+.active-link {
+    color: #81c408 !important;
+    font-weight: bold;}
 i {
     height: 10px;
     width: 10px;
